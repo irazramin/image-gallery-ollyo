@@ -1,11 +1,11 @@
 import React from 'react';
-import NavbarComponent from "../../components/layouts/Navbar.component";
+import TitlebarComponent from "../../components/layouts/Titlebar.component";
 import GalleryComponent from "../../components/gallery/Gallery.component";
 
 const HomePage = () => {
     return (
         <div className="container mx-auto">
-            <NavbarComponent />
+            <TitlebarComponent />
             <div>
                 <GalleryComponent />
             </div>
