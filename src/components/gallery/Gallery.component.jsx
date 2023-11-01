@@ -22,7 +22,7 @@ const GalleryComponent = () => {
     }, [imgData]);
 
     return (
-        <div className="bg-white py-5 px-10 border-b rounded-b-xl shadow-[0px_0px_20px_4px_#edf2f7] lg:w-[85%] mx-auto relative">
+        <div className="bg-white md:p-10 p-6 border-b rounded-b-xl shadow-[0px_25px_20px_8px_#EBF4FF] lg:w-[85%] mx-auto relative">
             <SortableListComponent items={imgData.items} onSortEnd={onSortEnd} axis="xy"/>
         </div>
     );
