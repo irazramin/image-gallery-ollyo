@@ -32,15 +32,12 @@ const HomePage = () => {
     }
 
     const handleDeleteImages = () => {
-        if(selectAllImage) {
+        console.log(selectAllImage);
+        if(selectAllImagesValue) {
             dispatch(deleteAllImages())
         } else {
             dispatch(deleteSelectedImage({ current: imgData, selectedImages: selectedImages }));
         }
-    }
-
-    if (allManupulateData.length > 0) {
-        console.log(allManupulateData, mockData);
     }
 
     return (
