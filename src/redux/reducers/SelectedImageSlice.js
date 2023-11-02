@@ -48,7 +48,6 @@ export const selectedImageSlice = createSlice({
         },
         deleteAllImages: (state, action) => {
             console.log("called");
-            state.allData.splice(0, state.allData.length)
             data.images.splice(0, data.images.length)
             state.render = !state.render;
             console.log(state.allData);

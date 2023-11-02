@@ -34,7 +34,7 @@ const HomePage = () => {
     const handleDeleteImages = () => {
         if(selectAllImage) {
             dispatch(deleteAllImages())
-        }else {
+        } else {
             dispatch(deleteSelectedImage({ current: imgData, selectedImages: selectedImages }));
         }
     }
