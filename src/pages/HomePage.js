@@ -47,7 +47,7 @@ const HomePage = () => {
         <AppLayout>
             <div className='container mx-auto px-5 lg:px-0 my-5'>
                 <div className="flex items-center justify-between h-[70px] rounded-xl mx-auto mb-5">
-                    <p className="font-bold md:text-xl capitalize">{imgData.images.length} {imgData.images.length === 1 ? 'image' : 'images'} available</p>
+                    <p className="font-bold md:text-xl capitalize">{imgData.images.length} {imgData.images.length <= 1 ? 'image' : 'images'} available</p>
                     <div className="flex items-center justify-end">
                         <div className="mr-5">
                             {selectedImages.length > 0 && (
