@@ -19,7 +19,7 @@ const SearchBar = () => {
     return (
         <>
             <div
-                className={`${showDropdown ? 'bg-white border' : 'bg-neutral-100'} transition-all duration-300 w-full p-[12px] flex items-center rounded-2xl relative md:block z-40`}>
+                className={`${showDropdown ? 'bg-white border' : 'bg-neutral-100'} transition-all duration-300 w-full p-[12px] flex items-center rounded-2xl relative md:block z-40 md:z-50`}>
                 <BiSearch
                     className="text-xl absolute text-gray-400 left-[15px] top-[50%] -translate-y-[50%]" />
                 <input onBlur={handleSearchInputBlur} onFocus={handleSearchInputFocus} type="text"
