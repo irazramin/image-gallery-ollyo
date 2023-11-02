@@ -32,7 +32,6 @@ const HomePage = () => {
     }
 
     const handleDeleteImages = () => {
-        console.log(selectAllImage);
         if(selectAllImagesValue) {
             dispatch(deleteAllImages())
         } else {
