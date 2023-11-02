@@ -1,9 +1,11 @@
-import {createSlice} from '@reduxjs/toolkit'
-import data from "../../data/imageData";
+import { createSlice } from '@reduxjs/toolkit'
+import data from "../../data/mock";
 
 const initialState = {
     value: [],
-    allData: []
+    allData: [],
+    selectAllImage: false,
+    filterImage: ""
 }
 
 export const selectedImageSlice = createSlice({
@@ -27,25 +29,43 @@ export const selectedImageSlice = createSlice({
             // first we need to remove image from local storage
             // second we also need to remove value from navbar count
 
-            let deletedIndex = action.payload;
-            const afterDelete = data.items?.filter((item, idx) => !deletedIndex.includes(item.id));
+            let deletedIndex = action.payload.selectedImages;
+            let currentImages = action.payload.current;
+
+            const afterDelete = currentImages.images.filter((item, idx) => !deletedIndex.includes(item.id));
 
             if (afterDelete) {
-                data.items = afterDelete; // Update the data.items array with the filtered array
+                state.allData = afterDelete; // Update the data.images array with the filtered array
                 state.render = !state.render;
             }
 
-            action.payload.forEach((item, index) => {
+            action.payload.selectedImages.forEach((item, index) => {
                 const reduxValueIndex = state.value.indexOf(item);
                 if ((reduxValueIndex !== -1)) {
                     state.value.splice(reduxValueIndex, 1)
                 }
             });
+        },
+        selectAllImage: (state, action) => {
+            state.selectAllImage = action.payload;
+        },
+        filterImages: (state, action) => {
+            if (action.payload !== 'all') {
 
+                const afterFilter = data?.images.filter((image) => image.fileCategory === action.payload);
+                console.log(afterFilter);
+                if (afterFilter) {
+                    state.allData = afterFilter
+                    state.render = !state.render;
+                }
+            }
+            else {
+                state.allData = data?.images
+            }
         }
     },
 })
 
-export const {selectedImage, removeImage, addAllImage, deleteSelectedImage} = selectedImageSlice.actions
+export const { selectedImage, removeImage, addAllImage, deleteSelectedImage, selectAllImage, filterImages } = selectedImageSlice.actions
 
 export default selectedImageSlice.reducer
