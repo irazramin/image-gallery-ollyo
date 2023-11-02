@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { SortableElement } from "react-sortable-hoc";
 import Checkbox from "../../components/inputs/Checkbox";
 import { useDispatch, useSelector } from "react-redux";
@@ -31,6 +31,12 @@ const GalleryItem = SortableElement(({ value, position, itemKey }) => {
 
         console.log(id)
     }
+
+    useEffect(() => {
+        setCheckedImage(selectAllImages)
+
+    }, [selectAllImages]);
+
 
     return (
         <div

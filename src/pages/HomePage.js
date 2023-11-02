@@ -4,7 +4,7 @@ import GalleryList from '../components/gallery/GalleryList';
 import { useDispatch, useSelector } from 'react-redux';
 import { arrayMove } from 'react-sortable-hoc';
 import mockData from "../data/mock"
-import { deleteSelectedImage, selectAllImage } from '../redux/reducers/SelectedImageSlice';
+import { deleteAllImages, deleteSelectedImage, selectAllImage } from '../redux/reducers/SelectedImageSlice';
 import { RiDeleteBin5Line } from "react-icons/ri";
 
 const HomePage = () => {
@@ -32,7 +32,11 @@ const HomePage = () => {
     }
 
     const handleDeleteImages = () => {
-        dispatch(deleteSelectedImage({ current: imgData, selectedImages: selectedImages }));
+        if(selectAllImage) {
+            dispatch(deleteAllImages())
+        }else {
+            dispatch(deleteSelectedImage({ current: imgData, selectedImages: selectedImages }));
+        }
     }
 
     if (allManupulateData.length > 0) {

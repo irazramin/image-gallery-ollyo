@@ -46,6 +46,14 @@ export const selectedImageSlice = createSlice({
                 }
             });
         },
+        deleteAllImages: (state, action) => {
+            console.log("called");
+            state.allData.splice(0, state.allData.length)
+            data.images.splice(0, data.images.length)
+            state.render = !state.render;
+            console.log(state.allData);
+        },
+        
         selectAllImage: (state, action) => {
             state.selectAllImage = action.payload;
         },
@@ -66,6 +74,6 @@ export const selectedImageSlice = createSlice({
     },
 })
 
-export const { selectedImage, removeImage, addAllImage, deleteSelectedImage, selectAllImage, filterImages } = selectedImageSlice.actions
+export const { selectedImage, removeImage, addAllImage, deleteSelectedImage, selectAllImage, filterImages, deleteAllImages } = selectedImageSlice.actions
 
 export default selectedImageSlice.reducer
