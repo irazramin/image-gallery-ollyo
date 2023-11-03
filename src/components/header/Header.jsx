@@ -22,7 +22,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className='grid grid-cols-12'>
-                    <div className='col-span-12 relative md:order-3 order-2 z-50 mt-3 md:block hidden z-0'>
+                    <div className='col-span-12 relative md:order-3 order-2 mt-3 md:block hidden z-0'>
                         <CollectionList />
                     </div>
                 </div>

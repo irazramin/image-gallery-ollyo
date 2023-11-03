@@ -16,7 +16,7 @@ const CollectionList = () => {
     }
 
     return (
-        <ul className="flex items-center gap-5">
+        <ul className="flex items-center gap-5 -z-1">
             {
                 filterData.map((item, index) => {
                     return (
