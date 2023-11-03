@@ -22,17 +22,23 @@ const HomePage = () => {
     };
 
     useEffect(() => {
+        // if users delete image from the gallery, rest images will add in the state
+
         if (allManupulateData.length > 0) {
             setImgData({ images: allManupulateData });
         }
     }, [render, allManupulateData]);
 
     const handleAllSelectImages = () => {
+        // if users want to select all the images, it will call. (which is appear when user select an image)
+
         dispatch(selectAllImage(true));
     }
 
     const handleDeleteImages = () => {
-        if(selectAllImagesValue) {
+        // if users want to delete all the images, it will call. (which is appear when user select an image)
+
+        if (selectAllImagesValue) {
             dispatch(deleteAllImages())
         } else {
             dispatch(deleteSelectedImage({ current: imgData, selectedImages: selectedImages }));

@@ -13,15 +13,18 @@ export const selectedImageSlice = createSlice({
     initialState,
     reducers: {
         selectedImage: (state, action) => {
+            // if users want to select image it will be called
             state.value.push(action.payload);
         },
         removeImage: (state, action) => {
+            // if users want to unselect image it will be called
             const index = state.value.indexOf(action.payload)
             if (index !== -1) {
                 state.value.splice(index, 1)
             }
         },
         addAllImage: (state, action) => {
+            
             state.allData.push(action.payload);
         },
         deleteSelectedImage: (state, action) => {
@@ -47,16 +50,20 @@ export const selectedImageSlice = createSlice({
             });
         },
         deleteAllImages: (state, action) => {
-            console.log("called");
+            // if users want to delete all the images it will be called
+
             state.allData.splice(0, state.allData.length)
             data.images.splice(0, data.images.length)
             state.render = !state.render;
-            console.log(state.allData);
         },
         selectAllImage: (state, action) => {
+            // if users want to select all the images it will be called
+            
             state.selectAllImage = action.payload;
         },
         filterImages: (state, action) => {
+            // it will call when user want to filter images, which is exist below search bar. 
+            
             if (action.payload !== 'all') {
 
                 const afterFilter = data?.images.filter((image) => image.fileCategory === action.payload);
